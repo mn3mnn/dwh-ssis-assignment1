@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/16/2025 1:08:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MONEM-ZENBOOK"
+  DTS:CreatorName="MONEM-ZENBOOK\abdoe"
+  DTS:DTSID="{1A8FC897-1636-4E86-95B8-C062B768DF35}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{994748BD-AA39-4C74-8724-7AB7FC887035}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>
