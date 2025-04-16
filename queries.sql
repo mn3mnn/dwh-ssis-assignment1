@@ -16,3 +16,9 @@ CREATE TABLE [dbo].[Employee_Q2](
 ) ON [PRIMARY]
 GO
 
+/*create universtiy table q1*/
+CREATE TABLE University (
+    Name NVARCHAR(255),
+    Country NVARCHAR(100),
+    Alpha_Two_Code NVARCHAR(10)
+);
