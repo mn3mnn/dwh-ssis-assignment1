@@ -1,17 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96 d17.13
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "assignment1", "assignment1\assignment1.dtproj", "{A0ABC727-C1CE-FD89-E7AE-954A397CA47A}"
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Q1", "Q1\Q1.dtproj", "{4245097A-31E3-5D26-5084-3CDFFF23811B}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Q2", "Q2\Q2.dtproj", "{33BDA15C-E35A-5614-9AEE-F389FA5B2E3E}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Q3", "Q3\Q3.dtproj", "{25E2B388-9D1A-EAB6-FACB-5D4C798EFFA5}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Q4", "Q4\Q4.dtproj", "{D91A7285-52B0-90A5-C809-2F2366ED0639}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A0ABC727-C1CE-FD89-E7AE-954A397CA47A}.Development|Default.ActiveCfg = Development
-		{A0ABC727-C1CE-FD89-E7AE-954A397CA47A}.Development|Default.Build.0 = Development
+		{4245097A-31E3-5D26-5084-3CDFFF23811B}.Development|Default.ActiveCfg = Development
+		{4245097A-31E3-5D26-5084-3CDFFF23811B}.Development|Default.Build.0 = Development
+		{33BDA15C-E35A-5614-9AEE-F389FA5B2E3E}.Development|Default.ActiveCfg = Development
+		{33BDA15C-E35A-5614-9AEE-F389FA5B2E3E}.Development|Default.Build.0 = Development
+		{25E2B388-9D1A-EAB6-FACB-5D4C798EFFA5}.Development|Default.ActiveCfg = Development
+		{25E2B388-9D1A-EAB6-FACB-5D4C798EFFA5}.Development|Default.Build.0 = Development
+		{D91A7285-52B0-90A5-C809-2F2366ED0639}.Development|Default.ActiveCfg = Development
+		{D91A7285-52B0-90A5-C809-2F2366ED0639}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
