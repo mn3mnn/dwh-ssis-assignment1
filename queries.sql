@@ -22,3 +22,41 @@ CREATE TABLE University (
     Country NVARCHAR(100),
     Alpha_Two_Code NVARCHAR(10)
 );
+
+
+CREATE TABLE Employee_Current (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    City VARCHAR(100),
+    Email VARCHAR(100),
+    Update_Date DATE
+);
+CREATE TABLE Employee_History (
+  ID INT,
+  Name VARCHAR(100),
+  Old_City VARCHAR(100),
+  Old_Email VARCHAR(100),
+  Change_Date DATE
+);
+CREATE TABLE Employee_Q2 (
+    ID INT,
+    Name VARCHAR(100),
+    City VARCHAR(100),
+    Email VARCHAR(100),
+    Update_Date DATE
+);
+SELECT * FROM Employee_Q2
+INSERT INTO Employee_Q2 (ID, Name, City, Email, Update_Date)
+VALUES
+(1001, 'Ahmed', 'Cairo', 'ahmed@mail.com', '2025-03-27'),
+(1002, 'Nehal', 'Giza', 'nehal@mail.com', '2025-03-27'),
+(1003, 'Samaa', 'Cairo', 'samaa@mail.com', '2025-03-27');
+UPDATE Employee_Q2
+SET City = 'Alexandria', Email = 'ahmed.new@mail.com'
+WHERE ID = 1001;
+-- Check current table
+SELECT * FROM Employee_Current;
+
+-- Check history table
+
+
