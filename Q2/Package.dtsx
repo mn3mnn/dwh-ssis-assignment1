@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="4/16/2025 1:07:45 PM"
@@ -11,9 +11,1315 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{90F1134E-99FE-4F96-9E97-2C2A3CC0E97E}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{999DE690-6484-4823-9E4A-F81873D7DB3B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
-  <DTS:Executables />
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7AD86AF0-2F36-434B-B3DB-B34C93E33C1A}"
+      DTS:ObjectName="ROQAIA\SQLEXPRESS.universityDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ROQAIA\SQLEXPRESS;Initial Catalog=universityDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{7AD86AF0-2F36-434B-B3DB-B34C93E33C1A}ROQAIA\SQLEXPRESS.universityDB;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.university_user]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A88033E9-560A-4F47-BDD0-25DB16282857}"
+      DTS:ObjectName="ROQAIA\SQLEXPRESS.university_user">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ROQAIA\SQLEXPRESS;User ID=university_user;Provider=SQLOLEDB.1;Application Name=SSIS-Package-{A88033E9-560A-4F47-BDD0-25DB16282857}ROQAIA\SQLEXPRESS.university_user;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAx/IPr7bQmUuqyaVzWdbOoAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAi6x20yMVGHVwq+zvdxTHZeOo3ebq629IFANmbVoXJnwAAAAAOgAAAAAIAACAAAAD+J1yjoc+/D8kNq3eQMf/UPqGu96JHRZgfQpJasOyImiAAAADPPgAcEeptw2vWe+3+nfir3GY+EfXDaf5fI70yGssnNkAAAAAUJDmS+X2bYSqCsXXeRoo3gi/XPEJGFmHK7f0Dv2+lgdg05+9bvlbej4urd962MAy+PpBcAmWqkjYS8IiWLZFm</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{576ADF31-D779-4DB1-9736-94F13FDE131C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastRunDate">
+      <DTS:VariableValue
+        DTS:DataType="7">4/17/2025 3:34:50 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SCD Type 4 Load"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{53479F01-E732-4DF3-B224-C34CAB147EBB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SCD Type 4 Load"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SCD Type 4 Load\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SCD Type 4 Load\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\Conditional Split.Inputs[Conditional Split Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\Conditional Split.Inputs[Conditional Split Input].Columns[CityLookup]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CityLookup"
+                      lineageId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Match Output].Columns[CityLookup]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Type 4 Load\Conditional Split.Outputs[ChangedData]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ChangedData"
+                  synchronousInputId="Package\SCD Type 4 Load\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[City]} != #{Package\SCD Type 4 Load\Lookup.Outputs[Lookup Match Output].Columns[CityLookup]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">City != CityLookup</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Type 4 Load\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\SCD Type 4 Load\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Type 4 Load\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\SCD Type 4 Load\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Type 4 Load\Employee Q2 source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Employee Q2 source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee_Q2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Type 4 Load\Employee Q2 source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="100"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="100"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="100"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Update_Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[Update_Date]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Update_Date]"
+                      name="Update_Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].ExternalColumns[Update_Date]"
+                      dataType="dbDate"
+                      name="Update_Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[Update_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[Update_Date]"
+                      name="Update_Date" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Type 4 Load\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Employee_Current]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Employee_Current]) [refTable]
+where [refTable].[ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="City" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Email" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Update_Date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Type 4 Load\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Type 4 Load\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\Lookup.Inputs[Lookup Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\SCD Type 4 Load\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Match Output].Columns[CityLookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Match Output].Columns[CityLookup]"
+                      name="CityLookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">City</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Match Output].Columns[EmailLookup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Match Output].Columns[EmailLookup]"
+                      name="EmailLookup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Email</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\SCD Type 4 Load\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\SCD Type 4 Load\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Type 4 Load\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE Employee_Current
+SET City = ?, Email = ?, Update_Date = ?
+WHERE ID = ?
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Type 4 Load\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].Columns[Update_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Update_Date"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Update_Date]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="dbDate"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Type 4 Load\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SCD Type 4 Load\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Type 4 Load\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee_Current]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Type 4 Load\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Update_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Update_Date"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Update_Date]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Update_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Update_Date]"
+                      dataType="dbDate"
+                      name="Update_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Type 4 Load\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SCD Type 4 Load\OLE DB Destination 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee_History]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SCD Type 4 Load\OLE DB Destination 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[ROQAIA\SQLEXPRESS.universityDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Old_City]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Old_Email]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Update_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Update_Date"
+                      externalMetadataColumnId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Change_Date]"
+                      lineageId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output].Columns[Update_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Old_City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Old_City" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Old_Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Old_Email" />
+                    <externalMetadataColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Change_Date]"
+                      dataType="dbDate"
+                      name="Change_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SCD Type 4 Load\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SCD Type 4 Load\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SCD Type 4 Load\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SCD Type 4 Load.Paths[ChangedData]"
+              endId="Package\SCD Type 4 Load\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="ChangedData"
+              startId="Package\SCD Type 4 Load\Conditional Split.Outputs[ChangedData]" />
+            <path
+              refId="Package\SCD Type 4 Load.Paths[Conditional Split Default Output]"
+              endId="Package\SCD Type 4 Load\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+              name="Conditional Split Default Output"
+              startId="Package\SCD Type 4 Load\Conditional Split.Outputs[Conditional Split Default Output]" />
+            <path
+              refId="Package\SCD Type 4 Load.Paths[Lookup Match Output]"
+              endId="Package\SCD Type 4 Load\Conditional Split.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\SCD Type 4 Load.Paths[Lookup No Match Output]"
+              endId="Package\SCD Type 4 Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\SCD Type 4 Load\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\SCD Type 4 Load.Paths[OLE DB Source Output]"
+              endId="Package\SCD Type 4 Load\Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\SCD Type 4 Load\Employee Q2 source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\SCD Type 4 Load"
+          TopLeft="138.333325775134,69.333332851198" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SCD Type 4 Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\SCD Type 4 Load\Employee Q2 source"
+          TopLeft="305.0909045447,13.3636361645027" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\SCD Type 4 Load\Lookup"
+          TopLeft="175.318179734729,59.4090905528177" />
+        <EdgeLayout
+          Id="Package\SCD Type 4 Load.Paths[OLE DB Source Output]"
+          TopLeft="305.0909045447,34.1636361645027">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-73.3727248099716,25.245454388315"
+              Start="0,0"
+              End="-73.3727248099716,17.745454388315">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-69.3727248099716,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-69.3727248099716,0"
+                    Point2="-73.3727248099716,0"
+                    Point3="-73.3727248099716,4" />
+                  <mssgle:LineSegment
+                    End="-73.3727248099716,17.745454388315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\SCD Type 4 Load\OLE DB Destination"
+          TopLeft="142.772725227204,144.590907018293" />
+        <EdgeLayout
+          Id="Package\SCD Type 4 Load.Paths[Lookup No Match Output]"
+          TopLeft="230.045452480966,101.009090552818">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5818164654754"
+              Start="0,0"
+              End="0,36.0818164654754">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.0818164654754" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,12.2362207327377,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\SCD Type 4 Load\Conditional Split"
+          TopLeft="463.636356727643,66.3636353747411" />
+        <EdgeLayout
+          Id="Package\SCD Type 4 Load.Paths[Lookup Match Output]"
+          TopLeft="288.118179734729,83.6863629637794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175.518176992915,0"
+              Start="0,0"
+              End="168.018176992915,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="168.018176992915,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="35.8177017777073,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\SCD Type 4 Load\OLE DB Command"
+          TopLeft="550.909082699905,227.2727238861" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\SCD Type 4 Load\OLE DB Destination 1"
+          TopLeft="269.090905081142,228.181814781644" />
+        <EdgeLayout
+          Id="Package\SCD Type 4 Load.Paths[Conditional Split Default Output]"
+          TopLeft="516.169690060977,107.963635374741">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-157.078784979834,120.218179406903"
+              Start="0,0"
+              End="-157.078784979834,112.718179406903">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.83088936734" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.83088936734"
+                    Point2="0,48.83088936734"
+                    Point3="-4,48.83088936734" />
+                  <mssgle:LineSegment
+                    End="-153.078784979834,48.83088936734" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-153.078784979834,48.83088936734"
+                    Point2="-157.078784979834,48.83088936734"
+                    Point3="-157.078784979834,52.83088936734" />
+                  <mssgle:LineSegment
+                    End="-157.078784979834,112.718179406903" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-149.153298739917,53.83088936734,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SCD Type 4 Load.Paths[ChangedData]"
+          TopLeft="564.70302339431,107.963635374741">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69.8060593055956,119.309088511359"
+              Start="0,0"
+              End="69.8060593055956,111.809088511359">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.4616297664694" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.4616297664694"
+                    Point2="0,48.4616297664694"
+                    Point3="4,48.4616297664694" />
+                  <mssgle:LineSegment
+                    End="65.8060593055956,48.4616297664694" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.8060593055956,48.4616297664694"
+                    Point2="69.8060593055956,48.4616297664694"
+                    Point3="69.8060593055956,52.4616297664694" />
+                  <mssgle:LineSegment
+                    End="69.8060593055956,111.809088511359" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.69715074654778,53.4616297664694,60.4117578125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SCD Type 4 Load\Employee Q2 source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SCD Type 4 Load\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Employee_Current]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SCD Type 4 Load\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SCD Type 4 Load\OLE DB Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
